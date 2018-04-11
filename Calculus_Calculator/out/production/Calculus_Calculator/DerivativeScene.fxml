@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Derivative">
+   <children>
+      <VBox>
+         <children>
+            <MenuBar>
+              <menus>
+                  <Menu mnemonicParsing="false" text="Mode">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#toMain" text="Main" />
+                        <MenuItem disable="true" mnemonicParsing="false" onAction="#toDerivative" text="Derivative" />
+                        <MenuItem mnemonicParsing="false" onAction="#toIntegral" text="Integral" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#Calculate" text="Calculate" />
+                    <MenuItem mnemonicParsing="false" onAction="#Clear" text="Clear" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#showInfo" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+      <Label text="Derivative" textFill="#2f0f90">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@derivative.gif" />
+         </image>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </ImageView>
+      <GridPane hgap="30.0" vgap="30.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <VBox.margin>
+            <Insets right="70.0" top="30.0" />
+         </VBox.margin>
+         <children>
+            <Label text="F(x) = ">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="240.0" layoutY="7.0" text="x = " GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="25.0" text="h = " GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="functionInput" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField layoutX="310.0" layoutY="7.0" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="xInput">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="hInput" layoutX="310.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#Calculate" text="Calculate">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <GridPane hgap="10.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="answerLabel" textFill="#910c86">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="answerText" editable="false" style="-fx-background-color: transparent; -fx-background-insets: 0px;" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font size="23.0" />
+               </font></TextField>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </GridPane>
+      <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <VBox>
+         <children>
+            <Label text="Please enter angle in radian mode" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
